@@ -99,3 +99,15 @@ th {
         width: 95%; /* Almost full width, considering some margin */
     }
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px; /* This is typically readable on most devices */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 18px; /* Slightly larger for very small screens */
+    }
+}
