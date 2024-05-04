@@ -67,6 +67,25 @@ th {
     }
 }
 
+@media screen and (max-width: 480px) {
+    table {
+        width: 100%;
+        min-width: 0; /* Allow the table to scale down on smaller screens */
+        box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
+    }
+    th, td {
+        padding: 8px; /* Reduce padding to save space */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        width: 100%;
+        font-size: medium; /* Adjust font size for small devices */
+    }
+}
+
+
 /* Adjustments for very small devices like mobile phones */
 @media (max-width: 480px) {
     img {
