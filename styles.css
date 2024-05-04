@@ -95,7 +95,20 @@ th {
 
 @media screen and (max-width: 768px) {
     table, body {
-        width: 100%;
+        width: 95%;
+        min-width: 0; /* Allow the table to scale down on smaller screens */
+        box-shadow: none; /* Remove shadow on smaller devices for a cleaner look */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+    th, td {
+        padding: 8px; /* Reduce padding to save space */
+        box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table, body {
+        width: 95%;
         min-width: 0; /* Allow the table to scale down on smaller screens */
         box-shadow: none; /* Remove shadow on smaller devices for a cleaner look */
         overflow-x: hidden; /* Prevent horizontal overflow */
