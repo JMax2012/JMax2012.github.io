@@ -48,3 +48,34 @@ th {
     padding:10px;
     background: lightgreen;
 }
+
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%;
+        min-width: 0; /* Allow the table to scale down on smaller screens */
+        box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
+    }
+    th, td {
+        padding: 8px; /* Reduce padding to save space */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: small; /* Adjust font size for small devices */
+    }
+}
+
+/* Adjustments for very small devices like mobile phones */
+@media (max-width: 480px) {
+    img {
+        width: 90%; /* Slightly less than full width for aesthetic padding */
+    }
+}
+
+/* Adjustments for slightly larger screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    img {
+        width: 95%; /* Almost full width, considering some margin */
+    }
+}
