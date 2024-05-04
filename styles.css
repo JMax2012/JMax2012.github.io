@@ -62,7 +62,8 @@ th {
 
 @media screen and (max-width: 768px) {
     body {
-        font-size: small; /* Adjust font size for small devices */
+        width: 100%;
+        font-size: medium; /* Adjust font size for small devices */
     }
 }
 
