@@ -51,7 +51,7 @@ th {
 
 @media screen and (max-width: 768px) {
     table {
-        width: 95%;
+        width: 90%;
         min-width: 0; /* Allow the table to scale down on smaller screens */
         box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
     }
@@ -62,14 +62,14 @@ th {
 
 @media screen and (max-width: 768px) {
     body {
-        width: 95%;
+        width: 90%;
         font-size: medium; /* Adjust font size for small devices */
     }
 }
 
 @media screen and (max-width: 480px) {
     table {
-        width: 95%;
+        width: 90%;
         min-width: 0; /* Allow the table to scale down on smaller screens */
         box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
     }
@@ -80,7 +80,7 @@ th {
 
 @media screen and (max-width: 480px) {
     body {
-        width: 95%;
+        width: 90%;
         font-size: large; /* Adjust font size for small devices */
     }
 }
@@ -96,7 +96,7 @@ th {
 /* Adjustments for slightly larger screens */
 @media (min-width: 481px) and (max-width: 768px) {
     img {
-        width: 95%; /* Almost full width, considering some margin */
+        width: 90%; /* Almost full width, considering some margin */
     }
 }
 
