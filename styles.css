@@ -49,6 +49,10 @@ th {
     background: lightgreen;
 }
 
+* {
+    box-sizing: border-box; /* Ensures that padding and borders are included in the width calculation */
+}
+
 @media screen and (max-width: 768px) {
     table {
         width: 90%;
@@ -56,7 +60,7 @@ th {
         box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
     }
     th, td {
-        padding: 8px; /* Reduce padding to save space */
+        padding: 5px; /* Reduce padding to save space */
     }
 }
 
@@ -74,7 +78,7 @@ th {
         box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
     }
     th, td {
-        padding: 8px; /* Reduce padding to save space */
+        padding: 5px; /* Reduce padding to save space */
     }
 }
 
