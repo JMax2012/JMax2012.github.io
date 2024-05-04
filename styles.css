@@ -51,7 +51,7 @@ th {
 
 @media screen and (max-width: 768px) {
     table {
-        width: 80%;
+        width: 90%;
         min-width: 0; /* Allow the table to scale down on smaller screens */
         box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
     }
@@ -62,14 +62,14 @@ th {
 
 @media screen and (max-width: 768px) {
     body {
-        width: 80%;
+        width: 90%;
         font-size: medium; /* Adjust font size for small devices */
     }
 }
 
 @media screen and (max-width: 480px) {
     table {
-        width: 80%;
+        width: 90%;
         min-width: 0; /* Allow the table to scale down on smaller screens */
         box-shadow: none; /* Optionally remove shadow on smaller devices for a cleaner look */
     }
@@ -80,7 +80,7 @@ th {
 
 @media screen and (max-width: 480px) {
     body {
-        width: 80%;
+        width: 90%;
         font-size: large; /* Adjust font size for small devices */
     }
 }
@@ -89,14 +89,39 @@ th {
 /* Adjustments for very small devices like mobile phones */
 @media (max-width: 480px) {
     img {
-        width: 80%; /* Slightly less than full width for aesthetic padding */
+        width: 90%; /* Slightly less than full width for aesthetic padding */
     }
 }
 
-/* Adjustments for slightly larger screens */
+@media screen and (max-width: 768px) {
+    table, body {
+        width: 100%;
+        min-width: 0; /* Allow the table to scale down on smaller screens */
+        box-shadow: none; /* Remove shadow on smaller devices for a cleaner look */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+    th, td {
+        padding: 8px; /* Reduce padding to save space */
+        box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+}
+
+.chart {
+    max-width: 100%; /* Max width is 100% of its container to prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space around the image */
+    margin: 0 auto; /* Center align the image */
+}
+
+@media (max-width: 480px) {
+    img {
+        width: 100%; /* Full width on very small devices */
+    }
+}
+
 @media (min-width: 481px) and (max-width: 768px) {
     img {
-        width: 80%; /* Almost full width, considering some margin */
+        width: 95%; /* Slightly less than full width for aesthetic padding */
     }
 }
 
