@@ -128,6 +128,7 @@ th {
     height: auto; /* Maintain aspect ratio */
     display: block; /* Remove any extra space around the image */
     margin: 0 auto; /* Center align the image */
+    width: 95%
 }
 
 @media (max-width: 480px) {
