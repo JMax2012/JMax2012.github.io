@@ -7,7 +7,7 @@ table, th, td {
 }
 
 td {
-  padding: 12px;
+  padding: 7px;
 }
 
 body{
@@ -44,9 +44,14 @@ table{
     white-space: nowrap;
 }
 
+.winner {
+    padding:7px;
+    background: lightgreen;
+}
+
 th {    
     padding:10px;
-    background: lightgreen;
+    background: lightblue;
 }
 
 * {
