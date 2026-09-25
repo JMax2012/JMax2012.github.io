@@ -52,9 +52,76 @@ body {
   margin-bottom: 12px;
 }
 
+.sport-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.sport-btn {
+  background: #232938;
+  color: #b0b8d0;
+  border: 1px solid #2e3448;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.sport-btn:hover {
+  border-color: #c9a84c;
+  color: #e8eaf0;
+}
+
+.sport-btn.active {
+  background: #c9a84c;
+  border-color: #c9a84c;
+  color: #1a1f2e;
+}
+
+.sport-block.is-hidden {
+  display: none;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.filter-btn {
+  background: #232938;
+  color: #b0b8d0;
+  border: 1px solid #2e3448;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filter-btn:hover {
+  border-color: #c9a84c;
+  color: #e8eaf0;
+}
+
+.filter-btn.active {
+  background: #c9a84c;
+  border-color: #c9a84c;
+  color: #1a1f2e;
+}
+
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 12px;
 }
 
 thead th {
@@ -73,8 +140,14 @@ tbody tr {
   border-top: 1px solid #2e3448;
 }
 
-tbody tr.matchup-gap {
-  border-top: 2px solid #232938;
+tbody.matchup-gap,
+tbody.matchup-gap tr,
+tbody.matchup-gap td {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  height: 12px;
 }
 
 td {
@@ -112,7 +185,7 @@ td.spread-neg {
 
 tr.spacer td {
   padding: 0;
-  height: 20px;
+  height: 25px;
   background: #1a1f2e;
   border: none;
 }
@@ -123,18 +196,558 @@ tr.spacer td {
   padding: 12px 8px;
 }
 
+.empty-note.hidden {
+  display: none;
+}
+
+tbody.matchup {
+  background: #222838;
+  outline: 1px solid #3a4258;
+  outline-offset: 0;
+}
+
+tbody.matchup tr {
+  border: none;
+}
+
+tbody.matchup.is-hidden {
+  display: none;
+}
+
+tbody.matchup tr:first-child td:first-child {
+  border-top-left-radius: 8px;
+}
+
+tbody.matchup tr:first-child td:last-child {
+  border-top-right-radius: 8px;
+}
+
+tbody.matchup tr:nth-child(2) td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+tbody.matchup tr:nth-child(2) td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+tbody.matchup tr:nth-child(2) {
+  border-top: 1px solid #2e3448;
+}
+
+.bet-flag {
+  margin-left: 6px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
 @media (max-width: 420px) {
   body { font-size: 13px; padding: 12px; }
   td { padding: 8px 6px; }
   td.team { font-size: 13px; }
 }
+
+@media (min-width: 421px) {
+  html {
+    zoom: 1.1;
+  }
+}
 </style>
 </head>
 <body>
   <div class="page-wrap">
-    <p class="updated">Updated September 24, 2026</p>
-<div class="sport-block"><p class="sport-title">College Football</p><table><thead><tr><th>Date</th><th>Team</th><th style='text-align:right'>Model</th><th style='text-align:right'>Line</th></tr></thead><tbody><tr><td class='date'>09/24/2026</td><td class='team'>Liberty</td><td class='num spread-neg'>-10.1</td><td class='num spread-neg'>-2.5</td></tr><tr><td class='date'>09/24/2026</td><td class='team'>Coastal Carolina</td><td class='num spread-pos'>+10.1</td><td class='num spread-pos'>+2.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Clemson</td><td class='num spread-pos'>+4.1</td><td class='num spread-neg'>-1.5</td></tr><tr><td class='date'>09/25/2026</td><td class='team'>California</td><td class='num spread-neg'>-4.1</td><td class='num spread-pos'>+1.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Northwestern</td><td class='num spread-neg'>-14.6</td><td class='num spread-pos'>+21.0</td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Indiana</td><td class='num spread-pos'>+14.6</td><td class='num spread-neg'>-21.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Navy</td><td class='num spread-pos'>+1.0</td><td class='num spread-neg'>-7.0</td></tr><tr><td class='date'>09/25/2026</td><td class='team'>UAB</td><td class='num spread-neg'>-1.0</td><td class='num spread-pos'>+7.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Howard</td><td class='num spread-pos'>+22.4</td><td class='num spread-pos'>+41.5</td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Rutgers</td><td class='num spread-neg'>-22.4</td><td class='num spread-neg'>-41.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Army</td><td class='num spread-neg'>-13.4</td><td class='num spread-neg'>-3.0</td></tr><tr><td class='date'>09/25/2026</td><td class='team'>Temple</td><td class='num spread-pos'>+13.4</td><td class='num spread-pos'>+3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Illinois</td><td class='num spread-neg'>-9.7</td><td class='num spread-pos'>+26.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Ohio State</td><td class='num spread-pos'>+9.7</td><td class='num spread-neg'>-26.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Massachusetts</td><td class='num spread-neg'>-8.8</td><td class='num spread-neg'>-4.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Sacramento State</td><td class='num spread-pos'>+8.8</td><td class='num spread-pos'>+4.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Missouri State</td><td class='num spread-neg'>-3.4</td><td class='num spread-pos'>+34.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>SMU</td><td class='num spread-pos'>+3.4</td><td class='num spread-neg'>-34.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Air Force</td><td class='num spread-neg'>-5.1</td><td class='num spread-neg'>-5.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Nevada</td><td class='num spread-pos'>+5.1</td><td class='num spread-pos'>+5.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>New Mexico</td><td class='num spread-neg'>-7.2</td><td class='num spread-neg'>-11.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>New Mexico State</td><td class='num spread-pos'>+7.2</td><td class='num spread-pos'>+11.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Notre Dame</td><td class='num spread-neg'>-14.8</td><td class='num spread-neg'>-27.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Purdue</td><td class='num spread-pos'>+14.8</td><td class='num spread-pos'>+27.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Stonehill</td><td class='num spread-pos'>+6.1</td><td class='num spread-pos'>+34.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Ohio</td><td class='num spread-neg'>-6.1</td><td class='num spread-neg'>-34.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>UNLV</td><td class='num spread-neg'>-0.1</td><td class='num spread-neg'>-13.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Akron</td><td class='num spread-pos'>+0.1</td><td class='num spread-pos'>+13.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Georgia Tech</td><td class='num spread-neg'>-3.7</td><td class='num spread-neg'>-3.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Stanford</td><td class='num spread-pos'>+3.7</td><td class='num spread-pos'>+3.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Wisconsin</td><td class='num spread-neg'>-6.8</td><td class='num spread-pos'>+10.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Penn State</td><td class='num spread-pos'>+6.8</td><td class='num spread-neg'>-10.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>James Madison</td><td class='num spread-neg'>-14.0</td><td class='num spread-neg'>-6.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Old Dominion</td><td class='num spread-pos'>+14.0</td><td class='num spread-pos'>+6.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Houston Christian</td><td class='num spread-pos'>+13.8</td><td class='num spread-pos'>+37.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>North Texas</td><td class='num spread-neg'>-13.8</td><td class='num spread-neg'>-37.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Appalachian State</td><td class='num spread-neg'>-10.2</td><td class='num spread-pos'>+14.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>NC State</td><td class='num spread-pos'>+10.2</td><td class='num spread-neg'>-14.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Southern Miss</td><td class='num spread-pos'>+1.4</td><td class='num spread-pos'>+18.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Tulane</td><td class='num spread-neg'>-1.4</td><td class='num spread-neg'>-18.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>San Diego State</td><td class='num spread-pos'>+1.6</td><td class='num spread-pos'>+3.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Toledo</td><td class='num spread-neg'>-1.6</td><td class='num spread-neg'>-3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Missouri</td><td class='num spread-neg'>-10.2</td><td class='num spread-pos'>+6.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Mississippi State</td><td class='num spread-pos'>+10.2</td><td class='num spread-neg'>-6.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>TCU</td><td class='num spread-neg'>-11.8</td><td class='num spread-neg'>-3.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>UCF</td><td class='num spread-pos'>+11.8</td><td class='num spread-pos'>+3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Oregon</td><td class='num spread-neg'>-13.6</td><td class='num spread-neg'>-3.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>USC</td><td class='num spread-pos'>+13.6</td><td class='num spread-pos'>+3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Oregon State</td><td class='num spread-neg'>-7.2</td><td class='num spread-neg'>-10.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>UTEP</td><td class='num spread-pos'>+7.2</td><td class='num spread-pos'>+10.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Colorado State</td><td class='num spread-neg'>-7.2</td><td class='num spread-pos'>+13.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>UTSA</td><td class='num spread-pos'>+7.2</td><td class='num spread-neg'>-13.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Troy</td><td class='num spread-neg'>-2.7</td><td class='num spread-pos'>+3.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Utah State</td><td class='num spread-pos'>+2.7</td><td class='num spread-neg'>-3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Delaware</td><td class='num spread-neg'>-5.5</td><td class='num spread-pos'>+19.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Virginia</td><td class='num spread-pos'>+5.5</td><td class='num spread-neg'>-19.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Minnesota</td><td class='num spread-neg'>-3.9</td><td class='num spread-pos'>+10.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Washington</td><td class='num spread-pos'>+3.9</td><td class='num spread-neg'>-10.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Arizona</td><td class='num spread-neg'>-7.5</td><td class='num spread-neg'>-10.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Washington State</td><td class='num spread-pos'>+7.5</td><td class='num spread-pos'>+10.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Oklahoma State</td><td class='num spread-neg'>-8.9</td><td class='num spread-pos'>+1.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>West Virginia</td><td class='num spread-pos'>+8.9</td><td class='num spread-neg'>-1.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Mercyhurst</td><td class='num spread-pos'>+15.8</td><td class='num spread-pos'>+38.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Western Kentucky</td><td class='num spread-neg'>-15.8</td><td class='num spread-neg'>-38.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>South Alabama</td><td class='num spread-neg'>-5.1</td><td class='num spread-pos'>+20.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Kentucky</td><td class='num spread-pos'>+5.1</td><td class='num spread-neg'>-20.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Sam Houston State</td><td class='num spread-neg'>-10.0</td><td class='num spread-pos'>+34.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Texas Tech</td><td class='num spread-pos'>+10.0</td><td class='num spread-neg'>-34.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Texas</td><td class='num spread-neg'>-8.2</td><td class='num spread-neg'>-4.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Tennessee</td><td class='num spread-pos'>+8.2</td><td class='num spread-pos'>+4.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Oklahoma</td><td class='num spread-neg'>-7.9</td><td class='num spread-pos'>+14.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Georgia</td><td class='num spread-pos'>+7.9</td><td class='num spread-neg'>-14.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>UConn</td><td class='num spread-neg'>-10.1</td><td class='num spread-pos'>+3.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Miami (OH)</td><td class='num spread-pos'>+10.1</td><td class='num spread-neg'>-3.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Long Island University</td><td class='num spread-pos'>+19.7</td><td class='num spread-pos'>+35.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>FIU</td><td class='num spread-neg'>-19.7</td><td class='num spread-neg'>-35.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Lindenwood</td><td class='num spread-pos'>+11.8</td><td class='num spread-pos'>+25.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Eastern Michigan</td><td class='num spread-neg'>-11.8</td><td class='num spread-neg'>-25.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Kansas State</td><td class='num spread-neg'>-12.7</td><td class='num spread-neg'>-6.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Cincinnati</td><td class='num spread-pos'>+12.7</td><td class='num spread-pos'>+6.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Louisiana</td><td class='num spread-neg'>-2.8</td><td class='num spread-neg'>-10.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Charlotte</td><td class='num spread-pos'>+2.8</td><td class='num spread-pos'>+10.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Robert Morris</td><td class='num spread-pos'>+9.9</td><td class='num spread-pos'>+28.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Buffalo</td><td class='num spread-neg'>-9.9</td><td class='num spread-neg'>-28.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Colorado</td><td class='num spread-neg'>-3.2</td><td class='num spread-pos'>+10.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Baylor</td><td class='num spread-pos'>+3.2</td><td class='num spread-neg'>-10.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Virginia Tech</td><td class='num spread-neg'>-11.9</td><td class='num spread-neg'>-14.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Boston College</td><td class='num spread-pos'>+11.9</td><td class='num spread-pos'>+14.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Ole Miss</td><td class='num spread-neg'>-7.1</td><td class='num spread-pos'>+3.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Florida</td><td class='num spread-pos'>+7.1</td><td class='num spread-neg'>-3.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Vanderbilt</td><td class='num spread-neg'>-3.4</td><td class='num spread-pos'>+9.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Auburn</td><td class='num spread-pos'>+3.4</td><td class='num spread-neg'>-9.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Kennesaw State</td><td class='num spread-neg'>-1.2</td><td class='num spread-pos'>+6.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Arkansas State</td><td class='num spread-pos'>+1.2</td><td class='num spread-neg'>-6.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Tulsa</td><td class='num spread-neg'>-7.1</td><td class='num spread-pos'>+7.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Arkansas</td><td class='num spread-pos'>+7.1</td><td class='num spread-neg'>-7.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>South Florida</td><td class='num spread-neg'>-9.0</td><td class='num spread-neg'>-17.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Bowling Green</td><td class='num spread-pos'>+9.0</td><td class='num spread-pos'>+17.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Rice</td><td class='num spread-pos'>+3.9</td><td class='num spread-pos'>+13.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Fresno State</td><td class='num spread-neg'>-3.9</td><td class='num spread-neg'>-13.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>UCLA</td><td class='num spread-neg'>-4.6</td><td class='num spread-neg'>-1.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Maryland</td><td class='num spread-pos'>+4.6</td><td class='num spread-pos'>+1.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Central Michigan</td><td class='num spread-pos'>+8.7</td><td class='num spread-pos'>+41.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Miami</td><td class='num spread-neg'>-8.7</td><td class='num spread-neg'>-41.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>South Carolina</td><td class='num spread-neg'>-7.7</td><td class='num spread-pos'>+12.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Alabama</td><td class='num spread-pos'>+7.7</td><td class='num spread-neg'>-12.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Gardner Webb</td><td class='num spread-pos'>+7.6</td><td class='num spread-pos'>+23.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Marshall</td><td class='num spread-neg'>-7.6</td><td class='num spread-neg'>-23.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Wake Forest</td><td class='num spread-neg'>-6.1</td><td class='num spread-pos'>+13.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Louisville</td><td class='num spread-pos'>+6.1</td><td class='num spread-neg'>-13.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Florida Atlantic</td><td class='num spread-pos'>+1.4</td><td class='num spread-neg'>-13.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Louisiana Monroe</td><td class='num spread-neg'>-1.4</td><td class='num spread-pos'>+13.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Nebraska</td><td class='num spread-neg'>-14.6</td><td class='num spread-neg'>-5.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Michigan State</td><td class='num spread-pos'>+14.6</td><td class='num spread-pos'>+5.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Texas A&M</td><td class='num spread-neg'>-3.1</td><td class='num spread-pos'>+8.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>LSU</td><td class='num spread-pos'>+3.1</td><td class='num spread-neg'>-8.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Ball State</td><td class='num spread-pos'>+6.6</td><td class='num spread-pos'>+3.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Kent State</td><td class='num spread-neg'>-6.6</td><td class='num spread-neg'>-3.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Middle Tennessee</td><td class='num spread-neg'>-3.7</td><td class='num spread-pos'>+7.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Jacksonville State</td><td class='num spread-pos'>+3.7</td><td class='num spread-neg'>-7.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Utah</td><td class='num spread-neg'>-14.5</td><td class='num spread-neg'>-8.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Iowa State</td><td class='num spread-pos'>+14.5</td><td class='num spread-pos'>+8.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Northern Illinois</td><td class='num spread-pos'>+7.9</td><td class='num spread-pos'>+10.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Georgia State</td><td class='num spread-neg'>-7.9</td><td class='num spread-neg'>-10.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Houston</td><td class='num spread-neg'>-10.6</td><td class='num spread-neg'>-18.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Georgia Southern</td><td class='num spread-pos'>+10.6</td><td class='num spread-pos'>+18.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Iowa</td><td class='num spread-neg'>-10.0</td><td class='num spread-pos'>+5.5</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Michigan</td><td class='num spread-pos'>+10.0</td><td class='num spread-neg'>-5.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Boise State</td><td class='num spread-neg'>-6.3</td><td class='num spread-neg'>-7.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Western Michigan</td><td class='num spread-pos'>+6.3</td><td class='num spread-pos'>+7.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Hawai'i</td><td class='num spread-pos'>+1.2</td><td class='num spread-neg'>-3.0</td></tr><tr><td class='date'>09/26/2026</td><td class='team'>Wyoming</td><td class='num spread-neg'>-1.2</td><td class='num spread-pos'>+3.0</td></tr></tbody></table></div>
-<div class="sport-block"><p class="sport-title">NFL</p><table><thead><tr><th>Date</th><th>Team</th><th style='text-align:right'>Model</th><th style='text-align:right'>Line</th></tr></thead><tbody><tr><td class='date'>09/24/2026</td><td class='team'>ATL Falcons</td><td class='num spread-pos'>+4.6</td><td class='num spread-pos'>+6.0</td></tr><tr><td class='date'>09/24/2026</td><td class='team'>GB Packers</td><td class='num spread-neg'>-4.6</td><td class='num spread-neg'>-6.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>LA Chargers</td><td class='num spread-pos'>+2.6</td><td class='num spread-pos'>+7.0</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>BUF Bills</td><td class='num spread-neg'>-2.6</td><td class='num spread-neg'>-7.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>CAR Panthers</td><td class='num spread-neg'>-8.0</td><td class='num spread-neg'>-2.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>CLE Browns</td><td class='num spread-pos'>+8.0</td><td class='num spread-pos'>+2.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>BAL Ravens</td><td class='num spread-neg'>-7.1</td><td class='num spread-neg'>-3.0</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>DAL Cowboys</td><td class='num spread-pos'>+7.1</td><td class='num spread-pos'>+3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>LA Rams</td><td class='num spread-neg'>-0.5</td><td class='num spread-neg'>-2.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>DEN Broncos</td><td class='num spread-pos'>+0.5</td><td class='num spread-pos'>+2.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>NY Jets</td><td class='num spread-neg'>-0.6</td><td class='num spread-pos'>+6.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>DET Lions</td><td class='num spread-pos'>+0.6</td><td class='num spread-neg'>-6.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>HOU Texans</td><td class='num spread-neg'>-7.6</td><td class='num spread-neg'>-2.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>IND Colts</td><td class='num spread-pos'>+7.6</td><td class='num spread-pos'>+2.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>NE Patriots</td><td class='num spread-pos'>+11.4</td><td class='num spread-pos'>+3.0</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>JAX Jaguars</td><td class='num spread-neg'>-11.4</td><td class='num spread-neg'>-3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>KC Chiefs</td><td class='num spread-neg'>-4.9</td><td class='num spread-neg'>-11.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>MIA Dolphins</td><td class='num spread-pos'>+4.9</td><td class='num spread-pos'>+11.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>LV Raiders</td><td class='num spread-neg'>-3.0</td><td class='num spread-pos'>+3.0</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>NO Saints</td><td class='num spread-pos'>+3.0</td><td class='num spread-neg'>-3.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>TEN Titans</td><td class='num spread-pos'>+4.9</td><td class='num spread-pos'>+3.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>NY Giants</td><td class='num spread-neg'>-4.9</td><td class='num spread-neg'>-3.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>CIN Bengals</td><td class='num spread-pos'>+0.3</td><td class='num spread-neg'>-3.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>PIT Steelers</td><td class='num spread-neg'>-0.3</td><td class='num spread-pos'>+3.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>ARI Cardinals</td><td class='num spread-pos'>+4.8</td><td class='num spread-pos'>+8.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>SF 49ers</td><td class='num spread-neg'>-4.8</td><td class='num spread-neg'>-8.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>MIN Vikings</td><td class='num spread-pos'>+0.8</td><td class='num spread-neg'>-1.5</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>TB Buccaneers</td><td class='num spread-neg'>-0.8</td><td class='num spread-pos'>+1.5</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/27/2026</td><td class='team'>SEA Seahawks</td><td class='num spread-neg'>-8.4</td><td class='num spread-neg'>-7.0</td></tr><tr><td class='date'>09/27/2026</td><td class='team'>WAS Commanders</td><td class='num spread-pos'>+8.4</td><td class='num spread-pos'>+7.0</td></tr><tr class='spacer'><td colspan='4'></td></tr><tr><td class='date'>09/28/2026</td><td class='team'>PHI Eagles</td><td class='num spread-neg'>-2.4</td><td class='num spread-neg'>-3.0</td></tr><tr><td class='date'>09/28/2026</td><td class='team'>CHI Bears</td><td class='num spread-pos'>+2.4</td><td class='num spread-pos'>+3.0</td></tr></tbody></table></div>
+    <p class="updated">Updated September 25, 2026</p>
+<div class="sport-bar"><button type="button" class="sport-btn active" data-sport="all">All Sports</button><button type="button" class="sport-btn" data-sport="cfb">CFB</button><button type="button" class="sport-btn" data-sport="nfl">NFL</button></div>
+<div class="sport-block" data-sport="cfb"><p class="sport-title">College Football</p><div class="filter-bar"><button type="button" class="filter-btn active" data-min="0">Show All</button><button type="button" class="filter-btn" data-min="5">Filter 5+</button><button type="button" class="filter-btn" data-min="10">Filter 10+</button></div><table>
+<thead><tr>
+<th>Date</th>
+<th>Team</th>
+<th style='text-align:right'>Model</th>
+<th style='text-align:right'>Line</th>
+</tr></thead>
+<tbody class='matchup' data-diff='5.6' data-date='09/25/2026'>
+<tr><td class='date'>09/25/2026</td><td class='team'>Clemson</td><td class='num spread-pos'>+4.1</td><td class='num spread-neg'>-1.5</td></tr>
+<tr><td class='date'>09/25/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>California</td><td class='num spread-neg'>-4.1</td><td class='num spread-pos'>+1.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='35.6' data-date='09/25/2026'>
+<tr><td class='date'>09/25/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Northwestern</td><td class='num spread-neg'>-14.6</td><td class='num spread-pos'>+21.0</td></tr>
+<tr><td class='date'>09/25/2026</td><td class='team'>Indiana</td><td class='num spread-pos'>+14.6</td><td class='num spread-neg'>-21.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='8.0' data-date='09/25/2026'>
+<tr><td class='date'>09/25/2026</td><td class='team'>Navy</td><td class='num spread-pos'>+1.0</td><td class='num spread-neg'>-7.0</td></tr>
+<tr><td class='date'>09/25/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>UAB</td><td class='num spread-neg'>-1.0</td><td class='num spread-pos'>+7.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='19.1' data-date='09/25/2026'>
+<tr><td class='date'>09/25/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Howard</td><td class='num spread-pos'>+22.4</td><td class='num spread-pos'>+41.5</td></tr>
+<tr><td class='date'>09/25/2026</td><td class='team'>Rutgers</td><td class='num spread-neg'>-22.4</td><td class='num spread-neg'>-41.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='10.4' data-date='09/25/2026'>
+<tr><td class='date'>09/25/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Army</td><td class='num spread-neg'>-13.4</td><td class='num spread-neg'>-3.0</td></tr>
+<tr><td class='date'>09/25/2026</td><td class='team'>Temple</td><td class='num spread-pos'>+13.4</td><td class='num spread-pos'>+3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='36.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Illinois</td><td class='num spread-neg'>-9.7</td><td class='num spread-pos'>+26.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Ohio State</td><td class='num spread-pos'>+9.7</td><td class='num spread-neg'>-26.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='4.8' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Massachusetts</td><td class='num spread-neg'>-8.8</td><td class='num spread-neg'>-4.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Sacramento State</td><td class='num spread-pos'>+8.8</td><td class='num spread-pos'>+4.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='37.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Missouri State</td><td class='num spread-neg'>-3.4</td><td class='num spread-pos'>+34.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>SMU</td><td class='num spread-pos'>+3.4</td><td class='num spread-neg'>-34.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='0.4' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Air Force</td><td class='num spread-neg'>-5.1</td><td class='num spread-neg'>-5.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Nevada</td><td class='num spread-pos'>+5.1</td><td class='num spread-pos'>+5.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='4.3' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>New Mexico</td><td class='num spread-neg'>-7.2</td><td class='num spread-neg'>-11.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>New Mexico State</td><td class='num spread-pos'>+7.2</td><td class='num spread-pos'>+11.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='12.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Notre Dame</td><td class='num spread-neg'>-14.8</td><td class='num spread-neg'>-27.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Purdue</td><td class='num spread-pos'>+14.8</td><td class='num spread-pos'>+27.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='28.4' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Stonehill</td><td class='num spread-pos'>+6.1</td><td class='num spread-pos'>+34.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Ohio</td><td class='num spread-neg'>-6.1</td><td class='num spread-neg'>-34.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='13.4' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>UNLV</td><td class='num spread-neg'>-0.1</td><td class='num spread-neg'>-13.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Akron</td><td class='num spread-pos'>+0.1</td><td class='num spread-pos'>+13.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='0.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Georgia Tech</td><td class='num spread-neg'>-3.7</td><td class='num spread-neg'>-3.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Stanford</td><td class='num spread-pos'>+3.7</td><td class='num spread-pos'>+3.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='16.8' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Wisconsin</td><td class='num spread-neg'>-6.8</td><td class='num spread-pos'>+10.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Penn State</td><td class='num spread-pos'>+6.8</td><td class='num spread-neg'>-10.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='8.0' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>James Madison</td><td class='num spread-neg'>-14.0</td><td class='num spread-neg'>-6.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Old Dominion</td><td class='num spread-pos'>+14.0</td><td class='num spread-pos'>+6.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='23.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Houston Christian</td><td class='num spread-pos'>+13.8</td><td class='num spread-pos'>+37.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>North Texas</td><td class='num spread-neg'>-13.8</td><td class='num spread-neg'>-37.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='24.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Appalachian State</td><td class='num spread-neg'>-10.2</td><td class='num spread-pos'>+14.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>NC State</td><td class='num spread-pos'>+10.2</td><td class='num spread-neg'>-14.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='17.1' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Southern Miss</td><td class='num spread-pos'>+1.4</td><td class='num spread-pos'>+18.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Tulane</td><td class='num spread-neg'>-1.4</td><td class='num spread-neg'>-18.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='1.4' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>San Diego State</td><td class='num spread-pos'>+1.6</td><td class='num spread-pos'>+3.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Toledo</td><td class='num spread-neg'>-1.6</td><td class='num spread-neg'>-3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='16.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Missouri</td><td class='num spread-neg'>-10.2</td><td class='num spread-pos'>+6.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Mississippi State</td><td class='num spread-pos'>+10.2</td><td class='num spread-neg'>-6.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='8.8' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>TCU</td><td class='num spread-neg'>-11.8</td><td class='num spread-neg'>-3.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>UCF</td><td class='num spread-pos'>+11.8</td><td class='num spread-pos'>+3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='10.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Oregon</td><td class='num spread-neg'>-13.6</td><td class='num spread-neg'>-3.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>USC</td><td class='num spread-pos'>+13.6</td><td class='num spread-pos'>+3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='3.3' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Oregon State</td><td class='num spread-neg'>-7.2</td><td class='num spread-neg'>-10.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>UTEP</td><td class='num spread-pos'>+7.2</td><td class='num spread-pos'>+10.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='20.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Colorado State</td><td class='num spread-neg'>-7.2</td><td class='num spread-pos'>+13.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>UTSA</td><td class='num spread-pos'>+7.2</td><td class='num spread-neg'>-13.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='5.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Troy</td><td class='num spread-neg'>-2.7</td><td class='num spread-pos'>+3.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Utah State</td><td class='num spread-pos'>+2.7</td><td class='num spread-neg'>-3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='25.0' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Delaware</td><td class='num spread-neg'>-5.5</td><td class='num spread-pos'>+19.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Virginia</td><td class='num spread-pos'>+5.5</td><td class='num spread-neg'>-19.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='13.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Minnesota</td><td class='num spread-neg'>-3.9</td><td class='num spread-pos'>+10.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Washington</td><td class='num spread-pos'>+3.9</td><td class='num spread-neg'>-10.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='2.5' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Arizona</td><td class='num spread-neg'>-7.5</td><td class='num spread-neg'>-10.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Washington State</td><td class='num spread-pos'>+7.5</td><td class='num spread-pos'>+10.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='10.4' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Oklahoma State</td><td class='num spread-neg'>-8.9</td><td class='num spread-pos'>+1.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>West Virginia</td><td class='num spread-pos'>+8.9</td><td class='num spread-neg'>-1.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='22.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Mercyhurst</td><td class='num spread-pos'>+15.8</td><td class='num spread-pos'>+38.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Western Kentucky</td><td class='num spread-neg'>-15.8</td><td class='num spread-neg'>-38.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='25.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>South Alabama</td><td class='num spread-neg'>-5.1</td><td class='num spread-pos'>+20.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Kentucky</td><td class='num spread-pos'>+5.1</td><td class='num spread-neg'>-20.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='44.5' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Sam Houston State</td><td class='num spread-neg'>-10.0</td><td class='num spread-pos'>+34.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Texas Tech</td><td class='num spread-pos'>+10.0</td><td class='num spread-neg'>-34.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='4.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Texas</td><td class='num spread-neg'>-8.2</td><td class='num spread-neg'>-4.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Tennessee</td><td class='num spread-pos'>+8.2</td><td class='num spread-pos'>+4.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='21.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Oklahoma</td><td class='num spread-neg'>-7.9</td><td class='num spread-pos'>+14.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Georgia</td><td class='num spread-pos'>+7.9</td><td class='num spread-neg'>-14.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='13.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>UConn</td><td class='num spread-neg'>-10.1</td><td class='num spread-pos'>+3.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Miami (OH)</td><td class='num spread-pos'>+10.1</td><td class='num spread-neg'>-3.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='15.8' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Long Island University</td><td class='num spread-pos'>+19.7</td><td class='num spread-pos'>+35.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>FIU</td><td class='num spread-neg'>-19.7</td><td class='num spread-neg'>-35.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='13.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Lindenwood</td><td class='num spread-pos'>+11.8</td><td class='num spread-pos'>+25.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Eastern Michigan</td><td class='num spread-neg'>-11.8</td><td class='num spread-neg'>-25.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='6.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Kansas State</td><td class='num spread-neg'>-12.7</td><td class='num spread-neg'>-6.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Cincinnati</td><td class='num spread-pos'>+12.7</td><td class='num spread-pos'>+6.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='7.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Louisiana</td><td class='num spread-neg'>-2.8</td><td class='num spread-neg'>-10.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Charlotte</td><td class='num spread-pos'>+2.8</td><td class='num spread-pos'>+10.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='18.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Robert Morris</td><td class='num spread-pos'>+9.9</td><td class='num spread-pos'>+28.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Buffalo</td><td class='num spread-neg'>-9.9</td><td class='num spread-neg'>-28.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='13.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Colorado</td><td class='num spread-neg'>-3.2</td><td class='num spread-pos'>+10.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Baylor</td><td class='num spread-pos'>+3.2</td><td class='num spread-neg'>-10.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='2.1' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Virginia Tech</td><td class='num spread-neg'>-11.9</td><td class='num spread-neg'>-14.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Boston College</td><td class='num spread-pos'>+11.9</td><td class='num spread-pos'>+14.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='10.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Ole Miss</td><td class='num spread-neg'>-7.1</td><td class='num spread-pos'>+3.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Florida</td><td class='num spread-pos'>+7.1</td><td class='num spread-neg'>-3.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='12.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Vanderbilt</td><td class='num spread-neg'>-3.4</td><td class='num spread-pos'>+9.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Auburn</td><td class='num spread-pos'>+3.4</td><td class='num spread-neg'>-9.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='7.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Kennesaw State</td><td class='num spread-neg'>-1.2</td><td class='num spread-pos'>+6.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Arkansas State</td><td class='num spread-pos'>+1.2</td><td class='num spread-neg'>-6.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='14.1' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Tulsa</td><td class='num spread-neg'>-7.1</td><td class='num spread-pos'>+7.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Arkansas</td><td class='num spread-pos'>+7.1</td><td class='num spread-neg'>-7.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='8.5' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>South Florida</td><td class='num spread-neg'>-9.0</td><td class='num spread-neg'>-17.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Bowling Green</td><td class='num spread-pos'>+9.0</td><td class='num spread-pos'>+17.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='9.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Rice</td><td class='num spread-pos'>+3.9</td><td class='num spread-pos'>+13.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Fresno State</td><td class='num spread-neg'>-3.9</td><td class='num spread-neg'>-13.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='3.1' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>UCLA</td><td class='num spread-neg'>-4.6</td><td class='num spread-neg'>-1.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Maryland</td><td class='num spread-pos'>+4.6</td><td class='num spread-pos'>+1.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='32.8' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Central Michigan</td><td class='num spread-pos'>+8.7</td><td class='num spread-pos'>+41.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Miami</td><td class='num spread-neg'>-8.7</td><td class='num spread-neg'>-41.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='20.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>South Carolina</td><td class='num spread-neg'>-7.7</td><td class='num spread-pos'>+12.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Alabama</td><td class='num spread-pos'>+7.7</td><td class='num spread-neg'>-12.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='15.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Gardner Webb</td><td class='num spread-pos'>+7.6</td><td class='num spread-pos'>+23.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Marshall</td><td class='num spread-neg'>-7.6</td><td class='num spread-neg'>-23.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='19.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Wake Forest</td><td class='num spread-neg'>-6.1</td><td class='num spread-pos'>+13.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Louisville</td><td class='num spread-pos'>+6.1</td><td class='num spread-neg'>-13.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='14.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Florida Atlantic</td><td class='num spread-pos'>+1.4</td><td class='num spread-neg'>-13.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Louisiana Monroe</td><td class='num spread-neg'>-1.4</td><td class='num spread-pos'>+13.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='9.1' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Nebraska</td><td class='num spread-neg'>-14.6</td><td class='num spread-neg'>-5.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Michigan State</td><td class='num spread-pos'>+14.6</td><td class='num spread-pos'>+5.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='11.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Texas A&M</td><td class='num spread-neg'>-3.1</td><td class='num spread-pos'>+8.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>LSU</td><td class='num spread-pos'>+3.1</td><td class='num spread-neg'>-8.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='3.1' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Ball State</td><td class='num spread-pos'>+6.6</td><td class='num spread-pos'>+3.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Kent State</td><td class='num spread-neg'>-6.6</td><td class='num spread-neg'>-3.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='10.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Middle Tennessee</td><td class='num spread-neg'>-3.7</td><td class='num spread-pos'>+7.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Jacksonville State</td><td class='num spread-pos'>+3.7</td><td class='num spread-neg'>-7.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='6.0' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Utah</td><td class='num spread-neg'>-14.5</td><td class='num spread-neg'>-8.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Iowa State</td><td class='num spread-pos'>+14.5</td><td class='num spread-pos'>+8.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='2.6' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Northern Illinois</td><td class='num spread-pos'>+7.9</td><td class='num spread-pos'>+10.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Georgia State</td><td class='num spread-neg'>-7.9</td><td class='num spread-neg'>-10.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='7.9' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Houston</td><td class='num spread-neg'>-10.6</td><td class='num spread-neg'>-18.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Georgia Southern</td><td class='num spread-pos'>+10.6</td><td class='num spread-pos'>+18.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='15.5' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Iowa</td><td class='num spread-neg'>-10.0</td><td class='num spread-pos'>+5.5</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'>Michigan</td><td class='num spread-pos'>+10.0</td><td class='num spread-neg'>-5.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='0.7' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Boise State</td><td class='num spread-neg'>-6.3</td><td class='num spread-neg'>-7.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Western Michigan</td><td class='num spread-pos'>+6.3</td><td class='num spread-pos'>+7.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='4.2' data-date='09/26/2026'>
+<tr><td class='date'>09/26/2026</td><td class='team'>Hawai'i</td><td class='num spread-pos'>+1.2</td><td class='num spread-neg'>-3.0</td></tr>
+<tr><td class='date'>09/26/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>Wyoming</td><td class='num spread-neg'>-1.2</td><td class='num spread-pos'>+3.0</td></tr>
+</tbody>
+</table>
+<p class="empty-note filter-empty hidden">No games match this filter.</p></div>
+<div class="sport-block" data-sport="nfl"><p class="sport-title">NFL</p><div class="filter-bar"><button type="button" class="filter-btn active" data-min="0">Show All</button><button type="button" class="filter-btn" data-min="5">Filter 5+</button><button type="button" class="filter-btn" data-min="10">Filter 10+</button></div><table>
+<thead><tr>
+<th>Date</th>
+<th>Team</th>
+<th style='text-align:right'>Model</th>
+<th style='text-align:right'>Line</th>
+</tr></thead>
+<tbody class='matchup' data-diff='4.4' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>LA Chargers</td><td class='num spread-pos'>+2.6</td><td class='num spread-pos'>+7.0</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>BUF Bills</td><td class='num spread-neg'>-2.6</td><td class='num spread-neg'>-7.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='5.5' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>CAR Panthers</td><td class='num spread-neg'>-8.0</td><td class='num spread-neg'>-2.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>CLE Browns</td><td class='num spread-pos'>+8.0</td><td class='num spread-pos'>+2.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='4.1' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>BAL Ravens</td><td class='num spread-neg'>-7.1</td><td class='num spread-neg'>-3.0</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>DAL Cowboys</td><td class='num spread-pos'>+7.1</td><td class='num spread-pos'>+3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='2.0' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'>LA Rams</td><td class='num spread-neg'>-0.5</td><td class='num spread-neg'>-2.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>DEN Broncos</td><td class='num spread-pos'>+0.5</td><td class='num spread-pos'>+2.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='7.1' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>NY Jets</td><td class='num spread-neg'>-0.6</td><td class='num spread-pos'>+6.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>DET Lions</td><td class='num spread-pos'>+0.6</td><td class='num spread-neg'>-6.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='5.1' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>HOU Texans</td><td class='num spread-neg'>-7.6</td><td class='num spread-neg'>-2.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>IND Colts</td><td class='num spread-pos'>+7.6</td><td class='num spread-pos'>+2.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='8.4' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'>NE Patriots</td><td class='num spread-pos'>+11.4</td><td class='num spread-pos'>+3.0</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>JAX Jaguars</td><td class='num spread-neg'>-11.4</td><td class='num spread-neg'>-3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='6.6' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'>KC Chiefs</td><td class='num spread-neg'>-4.9</td><td class='num spread-neg'>-11.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>MIA Dolphins</td><td class='num spread-pos'>+4.9</td><td class='num spread-pos'>+11.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='6.0' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>LV Raiders</td><td class='num spread-neg'>-3.0</td><td class='num spread-pos'>+3.0</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>NO Saints</td><td class='num spread-pos'>+3.0</td><td class='num spread-neg'>-3.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='1.4' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'>TEN Titans</td><td class='num spread-pos'>+4.9</td><td class='num spread-pos'>+3.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>NY Giants</td><td class='num spread-neg'>-4.9</td><td class='num spread-neg'>-3.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='3.8' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'>CIN Bengals</td><td class='num spread-pos'>+0.3</td><td class='num spread-neg'>-3.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>PIT Steelers</td><td class='num spread-neg'>-0.3</td><td class='num spread-pos'>+3.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='3.7' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>ARI Cardinals</td><td class='num spread-pos'>+4.8</td><td class='num spread-pos'>+8.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>SF 49ers</td><td class='num spread-neg'>-4.8</td><td class='num spread-neg'>-8.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='2.3' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'>MIN Vikings</td><td class='num spread-pos'>+0.8</td><td class='num spread-neg'>-1.5</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>TB Buccaneers</td><td class='num spread-neg'>-0.8</td><td class='num spread-pos'>+1.5</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='1.4' data-date='09/27/2026'>
+<tr><td class='date'>09/27/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>SEA Seahawks</td><td class='num spread-neg'>-8.4</td><td class='num spread-neg'>-7.0</td></tr>
+<tr><td class='date'>09/27/2026</td><td class='team'>WAS Commanders</td><td class='num spread-pos'>+8.4</td><td class='num spread-pos'>+7.0</td></tr>
+</tbody>
+<tbody class='matchup-gap'><tr><td colspan='4'></td></tr></tbody>
+<tbody class='matchup' data-diff='0.6' data-date='09/28/2026'>
+<tr><td class='date'>09/28/2026</td><td class='team'>PHI Eagles</td><td class='num spread-neg'>-2.4</td><td class='num spread-neg'>-3.0</td></tr>
+<tr><td class='date'>09/28/2026</td><td class='team'> <span class="bet-flag" title="Model edge">💵</span>CHI Bears</td><td class='num spread-pos'>+2.4</td><td class='num spread-pos'>+3.0</td></tr>
+</tbody>
+</table>
+<p class="empty-note filter-empty hidden">No games match this filter.</p></div>
   </div>
+  <script>
+function parseGameDate(value) {
+  const parts = String(value).trim().split(/[\/-]/);
+  if (parts.length !== 3) return null;
+  const month = parseInt(parts[0], 10);
+  const day = parseInt(parts[1], 10);
+  let year = parseInt(parts[2], 10);
+  if (Number.isNaN(month) || Number.isNaN(day) || Number.isNaN(year)) return null;
+  if (year < 100) year += 2000;
+  return new Date(year, month - 1, day);
+}
+
+function isPastGame(value) {
+  const game = parseGameDate(value);
+  if (!game) return false;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return game < today;
+}
+
+function applyFilters(block) {
+  const minDiff = parseFloat(block.dataset.minDiff || "0");
+  const matchups = block.querySelectorAll("tbody.matchup");
+  let visible = 0;
+
+  matchups.forEach((matchup) => {
+    const diff = parseFloat(matchup.dataset.diff || "0");
+    const past = isPastGame(matchup.dataset.date || "");
+    const hide = past || diff < minDiff;
+    matchup.classList.toggle("is-hidden", hide);
+    if (!hide) visible += 1;
+  });
+
+  const empty = block.querySelector(".filter-empty");
+  if (empty) empty.classList.toggle("hidden", visible > 0);
+}
+
+function setActiveButton(block, minDiff) {
+  block.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.classList.toggle("active", parseFloat(btn.dataset.min) === minDiff);
+  });
+}
+
+function showSport(sportId) {
+  document.querySelectorAll(".sport-block").forEach((block) => {
+    const match = sportId === "all" || block.dataset.sport === sportId;
+    block.classList.toggle("is-hidden", !match);
+  });
+
+  document.querySelectorAll(".sport-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.sport === sportId);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".sport-block").forEach((block) => {
+    block.dataset.minDiff = "0";
+    block.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const minDiff = parseFloat(btn.dataset.min);
+        block.dataset.minDiff = String(minDiff);
+        setActiveButton(block, minDiff);
+        applyFilters(block);
+      });
+    });
+    applyFilters(block);
+  });
+
+  document.querySelectorAll(".sport-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      showSport(btn.dataset.sport);
+    });
+  });
+});
+</script>
 </body>
 </html>
