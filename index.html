@@ -150,6 +150,10 @@ tbody.matchup-gap td {
   height: 12px;
 }
 
+tbody.matchup-gap.is-hidden {
+  display: none;
+}
+
 td {
   padding: 9px 8px;
   font-size: 14px;
@@ -646,15 +650,25 @@ function isPastGame(value) {
 
 function applyFilters(block) {
   const minDiff = parseFloat(block.dataset.minDiff || "0");
-  const matchups = block.querySelectorAll("tbody.matchup");
+  const matchups = Array.from(block.querySelectorAll("tbody.matchup"));
+  const gaps = Array.from(block.querySelectorAll("tbody.matchup-gap"));
   let visible = 0;
 
+  // Show/hide matchups
   matchups.forEach((matchup) => {
     const diff = parseFloat(matchup.dataset.diff || "0");
     const past = isPastGame(matchup.dataset.date || "");
     const hide = past || diff < minDiff;
     matchup.classList.toggle("is-hidden", hide);
     if (!hide) visible += 1;
+  });
+
+  // Show a gap only when both adjacent matchups are visible
+  // Structure is: matchup0, gap0, matchup1, gap1, ... matchupN
+  gaps.forEach((gap, i) => {
+    const prevVisible = matchups[i] && !matchups[i].classList.contains("is-hidden");
+    const nextVisible = matchups[i + 1] && !matchups[i + 1].classList.contains("is-hidden");
+    gap.classList.toggle("is-hidden", !(prevVisible && nextVisible));
   });
 
   const empty = block.querySelector(".filter-empty");
